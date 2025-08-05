@@ -30,6 +30,13 @@ const MainPage = () => {
         completed: { label: '완료', color: 'status-completed', icon: <CheckCircle className="w-4 h-4" /> }
     };
 
+    // 로그아웃 함수
+    const handleLogout = () => {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("isLoggedIn");
+        navigate("/login");
+    };
+
     // 필터링 적용
     const filteredProjects = projects.filter(project => {
         const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase());
@@ -37,13 +44,9 @@ const MainPage = () => {
         return matchesSearch && matchesFilter;
     });
 
-    const formatBudget = (budget) => {
-        return new Intl.NumberFormat('ko-KR').format(budget);
-    };
+    const formatBudget = (budget) => new Intl.NumberFormat('ko-KR').format(budget);
 
-    const formatDate = (date) => {
-        return date.toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' });
-    };
+    const formatDate = (date) => date.toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' });
 
     const getDaysLeft = (endDate) => {
         const today = new Date();
@@ -60,9 +63,7 @@ const MainPage = () => {
         return (
             <div className={`project-card ${categoryInfo.color}`} onClick={() => handleProjectClick(project.id)}>
                 <div className="project-card-header">
-                    <div className="project-thumbnail">
-                        {project.thumbnail}
-                    </div>
+                    <div className="project-thumbnail">{project.thumbnail}</div>
                     <div className="project-actions">
                         <button className="action-btn">
                             <MoreVertical className="w-4 h-4" />
@@ -89,10 +90,7 @@ const MainPage = () => {
                             <span>{project.progress}%</span>
                         </div>
                         <div className="progress-bar">
-                            <div
-                                className="progress-fill"
-                                style={{ width: `${project.progress}%` }}
-                            ></div>
+                            <div className="progress-fill" style={{ width: `${project.progress}%` }}></div>
                         </div>
                     </div>
 
@@ -121,7 +119,6 @@ const MainPage = () => {
         );
     };
 
-    // 로그인 여부에 따른 빈 상태 컴포넌트
     const EmptyState = () => (
         <div className="empty-state">
             <div className="empty-icon">📋</div>
@@ -158,19 +155,24 @@ const MainPage = () => {
                         <h1 className="dashboard-title">🎬 FilmPro</h1>
                         <p className="dashboard-subtitle">프로젝트 대시보드</p>
                     </div>
-                    {/* 로그인 상태일 때만 프로젝트 생성 버튼 표시 */}
-                    {isLoggedIn && projects.length > 0 && (
+                    {/* 로그인 상태일 때 프로젝트 생성 버튼과 로그아웃 버튼 둘 다 표시 */}
+                    {isLoggedIn && (
                         <div className="header-right">
-                            <button className="create-project-btn" onClick={handleCreateProject}>
-                                <Plus className="w-5 h-5" />
-                                프로젝트 생성
+                            {projects.length > 0 && (
+                                <button className="create-project-btn" onClick={handleCreateProject}>
+                                    <Plus className="w-5 h-5" />
+                                    프로젝트 생성
+                                </button>
+                            )}
+                            <button className="main-logout-btn" onClick={handleLogout}>
+                                로그아웃
                             </button>
                         </div>
                     )}
                 </div>
             </div>
 
-            {/* 필터 및 검색 - 로그인 및 프로젝트 있을 때만 */}
+            {/* 필터 및 검색 */}
             {isLoggedIn && projects.length > 0 && (
                 <div className="dashboard-controls">
                     <div className="search-container">
