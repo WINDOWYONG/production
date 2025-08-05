@@ -1,12 +1,48 @@
-# React + Vite
+# 🎬 FILMPRO
+## 프로젝트 소개
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**FilmPro는 전문 영상 제작자를 위한 올인원 플랫폼입니다.**
 
-Currently, two official plugins are available:
+촬영팀, 감독, 배우, 스태프 등 영상 제작에 필요한 다양한 역할을 한 곳에서 관리하고,  
+프로젝트 생성, 일정 관리, 포트폴리오 공유 및 협업 지원 기능을 제공합니다.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+기존 영상 제작 환경의 복잡함을 줄이고, 효율적인 작업 흐름과 원활한 커뮤니케이션을 목표로 개발 중입니다.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⏱ 개발 기간
+
+2024년 7월 ~ 현재 진행 중
+
+---
+
+## 👤 개발자 및 역할
+
+단독 개발자로서 기획, 설계, 프론트엔드와 백엔드 개발, 테스트, 배포까지 전 과정을 수행하고 있습니다.
+
+---
+
+## ⚙ 개발 환경 및 기술 스택
+
+- **프론트엔드:** React.js, React Router, CSS (또는 Tailwind CSS)  
+- **백엔드:** Spring Boot 2.7.x, Spring Security, JWT 인증  
+- **데이터베이스:** MySQL 8.x  
+- **빌드 도구:** Maven  
+- **API 통신:** RESTful API (JSON)  
+- **기타:** Lombok, jjwt 라이브러리 (JWT 토큰 처리)  
+
+---
+
+## 🛠 현재 개발된 기능
+
+- **일반 로그인**  
+  아이디와 비밀번호를 입력하여 로그인할 수 있습니다. 로그인 성공 시 JWT 토큰이 발급됩니다.
+  [로그인 데모](./images/production로그인.gif)
+
+- **로그아웃**  
+  로그인 상태를 해제하고, 저장된 토큰과 세션 정보를 삭제하여 안전하게 로그아웃할 수 있습니다.
+
+- **프로젝트 생성**  
+  선택한 카테고리, 프로젝트 제목, 예산, 촬영 시작일 및 종료일 등 프로젝트 정보를 입력하여 새 프로젝트를 생성할 수 있습니다.
+
+
