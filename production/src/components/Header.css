@@ -1,0 +1,26 @@
+.Header {
+  display: flex;
+  flex-direction: column;       /* 세로 정렬 */
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  color: #22c55e;               /* 짙은 초록 글자색 */
+  font-family: 'Pretendard', sans-serif;
+}
+
+.Header > h1 {
+  color: #2c7a2c;               /* 짙은 초록 */
+  margin: 0;
+  font-weight: 700;
+  font-size: 36px;              /* 좀 더 크게 */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 0 10px rgba(44, 122, 44, 0.8); /* 진한 초록 네온 글로우 */
+  user-select: none;            /* 드래그 방지 */
+}
+
+.Header > h1 > span {
+  font-size: 36px;
+}

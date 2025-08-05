@@ -1,0 +1,9 @@
+.App {
+  margin: 40px auto;            /* 위아래 여백 */
+  padding: 30px 40px;           /* 내부 여백 살짝 늘림 */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-sizing: border-box;
+  font-family: 'Pretendard', sans-serif;
+}
